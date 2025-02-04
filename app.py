@@ -14,8 +14,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 # LangChain configuration
-os.environ["LANGCHAIN_API_KEY"] = "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"
-os.environ["GOOGLE_API_KEY"] = "AIzaSyDjycqu5K7H7VvbkmlAemZhkdfMfYNX5TM"
+os.environ["LANGCHAIN_API_KEY"] = ""
+os.environ["GOOGLE_API_KEY"] = ""
 chat_model = ChatGoogleGenerativeAI(model="gemini-pro")
 
 # In-memory store (for temporary memory storage)
