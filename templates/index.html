@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project</title>
+</head>
+<body>
+
+    <h1>Create a New Project</h1>
+    <form action="/create_project" method="POST">
+        <label for="user_id">User ID:</label><br>
+        <input type="text" id="user_id" name="user_id"><br><br>
+
+        <label for="project_id">Project ID:</label><br>
+        <input type="text" id="project_id" name="project_id"><br><br>
+
+        <label for="name">Project Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="summary">Summary:</label><br>
+        <textarea id="summary" name="summary"></textarea><br><br>
+
+        <button type="submit">Create Project</button>
+    </form>
+
+    <h2>Projects</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Project ID</th>
+                <th>Project Name</th>
+                <th>Summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project.id }}</td>
+                <td><a href="{{ url_for('view_project', project_id=project.id) }}">{{ project.name }}</a></td>
+                <td>{{ project.summary }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>
